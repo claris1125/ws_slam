@@ -1,0 +1,47 @@
+[0.000000] (-) TimerEvent: {}
+[0.000879] (-) JobUnselected: {'identifier': 'fast_lio'}
+[0.001202] (-) JobUnselected: {'identifier': 'librealsense2'}
+[0.001482] (-) JobUnselected: {'identifier': 'livox_ros_driver2'}
+[0.001581] (-) JobUnselected: {'identifier': 'livox_sdk2'}
+[0.001651] (semantic_mapper) JobQueued: {'identifier': 'semantic_mapper', 'dependencies': OrderedDict()}
+[0.001717] (semantic_mapper) JobStarted: {'identifier': 'semantic_mapper'}
+[0.099254] (-) TimerEvent: {}
+[0.199868] (-) TimerEvent: {}
+[0.300459] (-) TimerEvent: {}
+[0.401062] (-) TimerEvent: {}
+[0.501698] (-) TimerEvent: {}
+[0.602354] (-) TimerEvent: {}
+[0.702946] (-) TimerEvent: {}
+[0.803585] (-) TimerEvent: {}
+[0.904180] (-) TimerEvent: {}
+[1.004785] (-) TimerEvent: {}
+[1.105487] (-) TimerEvent: {}
+[1.202190] (semantic_mapper) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/world/ws_slam/build/semantic_mapper/build', '--no-deps', 'symlink_data'], 'cwd': '/home/world/ws_slam/build/semantic_mapper', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'world', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/world/ws_slam/install/livox_sdk2/lib:/home/world/ws_slam/install/fast_lio/lib:/home/world/ws_slam/install/livox_ros_driver2/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/world', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1289', 'SYSTEMD_EXEC_PID': '2179', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3436', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/world/ws_slam/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'world', 'JOURNAL_STREAM': '8:45248', '_': '/home/world/.local/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'world', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/home/world/.local/bin:/home/world/.local/bin:/home/world/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/world-nx:@/tmp/.ICE-unix/1821,unix/world-nx:/tmp/.ICE-unix/1821', 'INVOCATION_ID': '357f7285640942df985029bba3a3f911', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/world/ws_slam/install/semantic_mapper:/home/world/ws_slam/install/fast_lio:/home/world/ws_slam/install/livox_ros_driver2:/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:af9c140a-c7a5-467b-ad13-c4fa1ae0a2db', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/world/ws_slam/build/semantic_mapper', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/home/world/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/world/ws_slam/build/semantic_mapper/prefix_override:/home/world/.local/lib/python3.10/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/world/ws_slam/install/semantic_mapper/lib/python3.10/site-packages:/home/world/ws_slam/build/semantic_mapper:/home/world/ws_slam/install/semantic_mapper/lib/python3.10/site-packages:/home/world/ws_slam/install/fast_lio/local/lib/python3.10/dist-packages:/home/world/ws_slam/install/livox_ros_driver2/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/world/ws_slam/install/fast_lio:/home/world/ws_slam/install/livox_ros_driver2'}, 'shell': False}
+[1.205495] (-) TimerEvent: {}
+[1.305934] (-) TimerEvent: {}
+[1.406505] (-) TimerEvent: {}
+[1.507036] (-) TimerEvent: {}
+[1.607589] (-) TimerEvent: {}
+[1.696335] (semantic_mapper) StdoutLine: {'line': b'running develop\n'}
+[1.707782] (-) TimerEvent: {}
+[1.808346] (-) TimerEvent: {}
+[1.908866] (-) TimerEvent: {}
+[1.999249] (semantic_mapper) StdoutLine: {'line': b'running egg_info\n'}
+[1.999995] (semantic_mapper) StdoutLine: {'line': b'writing semantic_mapper.egg-info/PKG-INFO\n'}
+[2.000645] (semantic_mapper) StdoutLine: {'line': b'writing dependency_links to semantic_mapper.egg-info/dependency_links.txt\n'}
+[2.001026] (semantic_mapper) StdoutLine: {'line': b'writing entry points to semantic_mapper.egg-info/entry_points.txt\n'}
+[2.001736] (semantic_mapper) StdoutLine: {'line': b'writing requirements to semantic_mapper.egg-info/requires.txt\n'}
+[2.002352] (semantic_mapper) StdoutLine: {'line': b'writing top-level names to semantic_mapper.egg-info/top_level.txt\n'}
+[2.006187] (semantic_mapper) StdoutLine: {'line': b"reading manifest file 'semantic_mapper.egg-info/SOURCES.txt'\n"}
+[2.007227] (semantic_mapper) StdoutLine: {'line': b"writing manifest file 'semantic_mapper.egg-info/SOURCES.txt'\n"}
+[2.008917] (-) TimerEvent: {}
+[2.009888] (semantic_mapper) StdoutLine: {'line': b'running build_ext\n'}
+[2.010176] (semantic_mapper) StdoutLine: {'line': b'Creating /home/world/ws_slam/install/semantic_mapper/lib/python3.10/site-packages/semantic-mapper.egg-link (link to .)\n'}
+[2.011956] (semantic_mapper) StdoutLine: {'line': b'Installing yolo_depth_mapper_node script to /home/world/ws_slam/install/semantic_mapper/lib/semantic_mapper\n'}
+[2.012471] (semantic_mapper) StdoutLine: {'line': b'\n'}
+[2.012673] (semantic_mapper) StdoutLine: {'line': b'Installed /home/world/ws_slam/build/semantic_mapper\n'}
+[2.012829] (semantic_mapper) StdoutLine: {'line': b'running symlink_data\n'}
+[2.105930] (semantic_mapper) CommandEnded: {'returncode': 0}
+[2.109059] (-) TimerEvent: {}
+[2.142650] (semantic_mapper) JobEnded: {'identifier': 'semantic_mapper', 'rc': 0}
+[2.145329] (-) EventReactorShutdown: {}
