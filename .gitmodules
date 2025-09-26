@@ -3,7 +3,7 @@
 	url = https://github.com/Livox-SDK/Livox-SDK2.git
 [submodule "src/fast_lio"]
 	path = src/fast_lio
-	url = https://github.com/Ericsii/FAST_LIO_ROS2.git
+	url = https://github.com/claris1125/FAST_LIO_ROS2.git
 [submodule "src/librealsense"]
 	path = src/librealsense
 	url = https://github.com/IntelRealSense/librealsense.git
