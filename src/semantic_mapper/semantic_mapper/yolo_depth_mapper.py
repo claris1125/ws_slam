@@ -7,6 +7,8 @@ import numpy as np
 import cv2
 
 from ultralytics import YOLO
+from ultralytics.nn.tasks import DetectionModel          # ← PyTorch 2.6 안전 로드용
+from torch.serialization import add_safe_globals         # ← PyTorch 2.6 안전 로드용
 import torch
 
 
@@ -32,20 +34,33 @@ class YoloDepthMapper(Node):
         self.model_path = self.get_parameter("model_path").value
         self.param_device = (self.get_parameter("device").value or "").strip()
 
-        # ===== Model Load (YOLOv8) =====
-        try:
-            self.model = YOLO(self.model_path)
-        except Exception as e:
-            self.get_logger().error(f"Failed to load YOLO model '{self.model_path}': {e}")
-            raise
-
-        # device 결정
+        # ===== Device decide =====
         if self.param_device:
             self.device = self.param_device
         else:
             self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-        self.get_logger().info(f"YOLOv8 model: {self.model_path}, device: {self.device}, conf: {self.conf}")
+        # ===== PyTorch 2.6 safe unpickling allowlist =====
+        # (Ultralytics가 내부에서 torch.load() 할 때 DetectionModel 언피클 허용)
+        add_safe_globals([DetectionModel])
+
+        # ===== Model Load (YOLOv8) =====
+        try:
+            self.model = YOLO(self.model_path)
+            # device 고정 + half 지원 시 활성화
+            self.model.to(self.device)
+            if "cuda" in self.device and torch.cuda.is_available():
+                try:
+                    self.model.fuse()  # 가능 시 레이어 fuse
+                except Exception:
+                    pass
+        except Exception as e:
+            self.get_logger().error(f"Failed to load YOLO model '{self.model_path}': {e}")
+            raise
+
+        self.get_logger().info(
+            f"YOLOv8 model: {self.model_path}, device: {self.device}, conf: {self.conf}"
+        )
 
         # ===== Subscriptions =====
         self.sub_rgb = self.create_subscription(Image, self.rgb_topic, self.on_rgb, 10)
@@ -64,7 +79,13 @@ class YoloDepthMapper(Node):
 
         # YOLOv8 추론
         try:
-            results = self.model(frame, conf=self.conf, verbose=False, device=self.device)
+            # imgsz나 half를 추가로 쓰고 싶으면 아래 kwargs에 넣으면 됨.
+            results = self.model(
+                frame,
+                conf=self.conf,
+                verbose=False,
+                device=self.device
+            )
             res = results[0]
             annotated = res.plot()  # np.ndarray (BGR)
         except Exception as e:
