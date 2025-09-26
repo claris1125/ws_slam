@@ -1,0 +1,3 @@
+[console_scripts]
+yolo_depth_mapper_node = semantic_mapper.yolo_depth_mapper:main
+

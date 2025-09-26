@@ -1,0 +1,1 @@
+/home/world/ws_slam/build/fast_lio/ament_cmake_environment_hooks/local_setup.bash

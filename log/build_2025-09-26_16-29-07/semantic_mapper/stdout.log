@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating semantic_mapper.egg-info
+writing semantic_mapper.egg-info/PKG-INFO
+writing dependency_links to semantic_mapper.egg-info/dependency_links.txt
+writing entry points to semantic_mapper.egg-info/entry_points.txt
+writing requirements to semantic_mapper.egg-info/requires.txt
+writing top-level names to semantic_mapper.egg-info/top_level.txt
+writing manifest file 'semantic_mapper.egg-info/SOURCES.txt'
+reading manifest file 'semantic_mapper.egg-info/SOURCES.txt'
+writing manifest file 'semantic_mapper.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/world/ws_slam/install/semantic_mapper/lib/python3.10/site-packages/semantic-mapper.egg-link (link to .)
+Installing yolo_depth_mapper_node script to /home/world/ws_slam/install/semantic_mapper/lib/semantic_mapper
+
+Installed /home/world/ws_slam/build/semantic_mapper
+running symlink_data
+creating /home/world/ws_slam/install/semantic_mapper/share/ament_index
+creating /home/world/ws_slam/install/semantic_mapper/share/ament_index/resource_index
+creating /home/world/ws_slam/install/semantic_mapper/share/ament_index/resource_index/packages
+symbolically linking /home/world/ws_slam/build/semantic_mapper/resource/semantic_mapper -> /home/world/ws_slam/install/semantic_mapper/share/ament_index/resource_index/packages
+symbolically linking /home/world/ws_slam/build/semantic_mapper/package.xml -> /home/world/ws_slam/install/semantic_mapper/share/semantic_mapper
+creating /home/world/ws_slam/install/semantic_mapper/share/semantic_mapper/launch

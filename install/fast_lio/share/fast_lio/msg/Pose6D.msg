@@ -1,0 +1,1 @@
+/home/world/ws_slam/src/fast_lio/msg/Pose6D.msg

@@ -1,0 +1,17 @@
+[1.237s] Invoking command in '/home/world/ws_slam/build/semantic_mapper': PYTHONPATH=/home/world/ws_slam/build/semantic_mapper/prefix_override:/home/world/.local/lib/python3.10/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/world/ws_slam/install/semantic_mapper/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/world/ws_slam/build/semantic_mapper/build --no-deps symlink_data
+[1.718s] running develop
+[2.027s] running egg_info
+[2.027s] writing semantic_mapper.egg-info/PKG-INFO
+[2.028s] writing dependency_links to semantic_mapper.egg-info/dependency_links.txt
+[2.028s] writing entry points to semantic_mapper.egg-info/entry_points.txt
+[2.028s] writing requirements to semantic_mapper.egg-info/requires.txt
+[2.029s] writing top-level names to semantic_mapper.egg-info/top_level.txt
+[2.032s] reading manifest file 'semantic_mapper.egg-info/SOURCES.txt'
+[2.034s] writing manifest file 'semantic_mapper.egg-info/SOURCES.txt'
+[2.037s] running build_ext
+[2.037s] Creating /home/world/ws_slam/install/semantic_mapper/lib/python3.10/site-packages/semantic-mapper.egg-link (link to .)
+[2.039s] Installing yolo_depth_mapper_node script to /home/world/ws_slam/install/semantic_mapper/lib/semantic_mapper
+[2.039s] 
+[2.039s] Installed /home/world/ws_slam/build/semantic_mapper
+[2.040s] running symlink_data
+[2.132s] Invoked command in '/home/world/ws_slam/build/semantic_mapper' returned '0': PYTHONPATH=/home/world/ws_slam/build/semantic_mapper/prefix_override:/home/world/.local/lib/python3.10/site-packages/colcon_core/task/python/colcon_distutils_commands:/home/world/ws_slam/install/semantic_mapper/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/world/ws_slam/build/semantic_mapper/build --no-deps symlink_data

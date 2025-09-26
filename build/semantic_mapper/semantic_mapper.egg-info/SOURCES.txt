@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+resource/semantic_mapper
+semantic_mapper/__init__.py
+semantic_mapper/yolo_depth_mapper.py
+semantic_mapper.egg-info/PKG-INFO
+semantic_mapper.egg-info/SOURCES.txt
+semantic_mapper.egg-info/dependency_links.txt
+semantic_mapper.egg-info/entry_points.txt
+semantic_mapper.egg-info/requires.txt
+semantic_mapper.egg-info/top_level.txt
+semantic_mapper.egg-info/zip-safe
