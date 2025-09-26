@@ -16,12 +16,14 @@ import torch.nn as nn
 from ultralytics.nn.tasks import DetectionModel
 from ultralytics.nn.modules.block import C2f, SPPF
 from ultralytics.nn.modules.conv import Conv
+from ultralytics.nn.modules import Conv as ConvTopLevel   # ★ 추가: pickled 경로 'ultralytics.nn.modules.Conv'
 
 # 신뢰 가능한 체크포인트 전제: 언피클 허용 목록 등록
 add_safe_globals([
     DetectionModel,
     nn.Sequential, nn.SiLU, nn.Conv2d, nn.BatchNorm2d,
     C2f, SPPF, Conv,
+    ConvTopLevel,  # ★ 추가
 ])
 
 
@@ -57,7 +59,6 @@ class YoloDepthMapper(Node):
         try:
             self.model = YOLO(self.model_path)
             self.model.to(self.device)
-            # Fuse는 가능한 경우만 시도
             try:
                 self.model.fuse()
             except Exception:
@@ -82,34 +83,25 @@ class YoloDepthMapper(Node):
         self.camera_info = None
 
     def on_rgb(self, msg: Image):
-        # BGR8 이미지로 변환
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
-
-        # YOLOv8 추론
         try:
-            results = self.model(
-                frame,
-                conf=self.conf,
-                verbose=False,
-                device=self.device
-            )
+            results = self.model(frame, conf=self.conf, verbose=False, device=self.device)
             res = results[0]
             annotated = res.plot()  # np.ndarray (BGR)
         except Exception as e:
             self.get_logger().error(f"YOLO inference failed: {e}")
             return
 
-        # 퍼블리시
         out = self.bridge.cv2_to_imgmsg(annotated, encoding="bgr8")
         out.header.stamp = msg.header.stamp
         out.header.frame_id = self.frame_id
         self.pub_img.publish(out)
 
     def on_depth(self, msg: Image):
-        self.last_depth = msg  # 필요 시 깊이-픽셀 매칭/3D 좌표화에 사용
+        self.last_depth = msg
 
     def on_info(self, msg: CameraInfo):
-        self.camera_info = msg  # 필요 시 intrinsics 사용
+        self.camera_info = msg
 
 
 def main(args=None):
