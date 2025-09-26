@@ -6,10 +6,23 @@ from cv_bridge import CvBridge
 import numpy as np
 import cv2
 
+# YOLOv8
 from ultralytics import YOLO
-from ultralytics.nn.tasks import DetectionModel          # ← PyTorch 2.6 안전 로드용
-from torch.serialization import add_safe_globals         # ← PyTorch 2.6 안전 로드용
+
+# PyTorch 2.6 안전 로드(weights_only=True 기본값) 대응
+from torch.serialization import add_safe_globals
 import torch
+import torch.nn as nn
+from ultralytics.nn.tasks import DetectionModel
+from ultralytics.nn.modules.block import C2f, SPPF
+from ultralytics.nn.modules.conv import Conv
+
+# 신뢰 가능한 체크포인트 전제: 언피클 허용 목록 등록
+add_safe_globals([
+    DetectionModel,
+    nn.Sequential, nn.SiLU, nn.Conv2d, nn.BatchNorm2d,
+    C2f, SPPF, Conv,
+])
 
 
 class YoloDepthMapper(Node):
@@ -34,26 +47,21 @@ class YoloDepthMapper(Node):
         self.model_path = self.get_parameter("model_path").value
         self.param_device = (self.get_parameter("device").value or "").strip()
 
-        # ===== Device decide =====
+        # Device 결정
         if self.param_device:
             self.device = self.param_device
         else:
             self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-        # ===== PyTorch 2.6 safe unpickling allowlist =====
-        # (Ultralytics가 내부에서 torch.load() 할 때 DetectionModel 언피클 허용)
-        add_safe_globals([DetectionModel])
-
         # ===== Model Load (YOLOv8) =====
         try:
             self.model = YOLO(self.model_path)
-            # device 고정 + half 지원 시 활성화
             self.model.to(self.device)
-            if "cuda" in self.device and torch.cuda.is_available():
-                try:
-                    self.model.fuse()  # 가능 시 레이어 fuse
-                except Exception:
-                    pass
+            # Fuse는 가능한 경우만 시도
+            try:
+                self.model.fuse()
+            except Exception:
+                pass
         except Exception as e:
             self.get_logger().error(f"Failed to load YOLO model '{self.model_path}': {e}")
             raise
@@ -79,7 +87,6 @@ class YoloDepthMapper(Node):
 
         # YOLOv8 추론
         try:
-            # imgsz나 half를 추가로 쓰고 싶으면 아래 kwargs에 넣으면 됨.
             results = self.model(
                 frame,
                 conf=self.conf,
